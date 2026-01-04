@@ -2,9 +2,36 @@
 #include "Windows.h"                    // Windows API の機能定義
 
 #include "../include/lib_func.h"
+#include <stdbool.h>
+#include <string.h>
 
 // バブルソート(引数が不適切であればfalseを返す)
 bool bubble_sort(item* begin, const item* end)
 {
-	return false;
+        if (begin == NULL || end == NULL) {
+            return false;
+        }
+    if (begin >= end) {
+        return false;
+    }
+
+    // 要素数
+    size_t count = end - begin;
+    if (count < 2) {
+        return true; // 並び替え不要
+    }
+
+    // バブルソート
+    for (size_t i = 0; i < count - 1; ++i) {
+        for (size_t j = 0; j < count - 1 - i; ++j) {
+            if (begin[j].key > begin[j + 1].key) {
+                item tmp;
+                tmp = begin[j];
+                begin[j] = begin[j + 1];
+                begin[j + 1] = tmp;
+            }
+        }
+    }
+
+    return true;
 }
