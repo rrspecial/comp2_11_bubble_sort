@@ -1,7 +1,7 @@
 ﻿#pragma once // インクルードガード
 
 #include <stdbool.h>
-
+#include <string.h>
 // C++ でCのライブラリを使うときのおまじない
 #ifdef __cplusplus
 extern "C" {
